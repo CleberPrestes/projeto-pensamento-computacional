@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calcula Nota</title>
+    <style media="screen">
+    body{
+      font-family: sans-serif;
+      background-color: BlueViolet;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .nota{
+      background-color: CornflowerBlue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 80px;
+      border-radius: 20px;
+      color: white;
+    }
+    input{
+      padding: 15px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      border-radius: 50px;
+      text-align: center;
+    }
+    button{
+      background-color: DarkCyan;
+      border: none;
+      padding: 15px;
+      width: 50%;
+      border-radius: 50px;
+      color: white;
+      font-size: 25px;
+
+    }
+    </style>
+
+
+  </head>
+  <body>
+
+    <div class="nota">
+      <h1>Programa que calcula quanto falta para passar de serie:</h1>
+      <br>
+      <h3>Insira a nota do Primeiro Trimestre</h3>
+      <br>
+      <input type="text" id="n1" >
+      <br>
+      <h3>Insira a nota do Segundo Trimestre</h3>
+      <br>
+      <input type="text" id="n2" >
+      <br>
+      <h3> </h3>
+      <br>
+      <button type="button" onclick="calculaNota()">Calcular Nota</button>
+      <h3>Para passar de ano voce precisa: </h3>
+      <h1 id = "result"></h1>
+      <h3 id="conselho"></h3>
+
+    </div>
+
+    <script type="text/javascript">
+      function calculaNota(){
+        var num1 = parseInt(document.getElementById('n1').value);
+        var num2 = parseInt(document.getElementById('n2').value);
+        var resultado = 180 -(num1+num2);
+        document.getElementById('result').innerHTML = parseFloat(resultado);
+        var conselho;
+
+        if (resultado<0) {
+          conselho="Voce ja passou !!!";
+        }
+      else if (resultado>100) {
+        conselho="Você esta reprovado !!!";
+      }
+      else {
+        conselho="Você ainda pode passar estude mais !!!";
+      }
+
+        document.getElementById('conselho').innerHTML = conselho;
+
+        //var radianos = 45/(180/Math.PI);
+        //var resultado = Math.sin(radianos);
+        //alert("Para passar no terceiro Trimestre você deve tirar: "+resultado);
+      }
+
+    </script>
+
+  </body>
+</html>
